@@ -1,9 +1,8 @@
 {
-  "name": "cda-template",
-  "version": "1.0.0",
+  "name": "csf-bot",
+  "version": "0.1.0",
+  "description": "Custom bot for the CSF server, focusing on the Competitive Stick Fight system",
   "main": "src/index",
-  "author": "Youri Bok",
-  "license": "MIT",
   "scripts": {
     "start": "node src/index",
     "dev": "nodemon src/index"
@@ -19,5 +18,15 @@
     "glob": "^7.1.6",
     "path": "^0.12.7",
     "util": "^0.12.3"
+  },
+  "author": "Youri Bok",
+  "license": "MIT",
+  "homepage": "https://github.com/GeneralYouri/csf-bot#readme",
+  "bugs": {
+    "url": "https://github.com/GeneralYouri/csf-bot/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeneralYouri/csf-bot.git"
   }
 }

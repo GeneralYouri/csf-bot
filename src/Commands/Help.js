@@ -1,19 +1,19 @@
-const { MessageEmbed } = require("discord.js");
-const Command = require("../Structures/Command");
+const { MessageEmbed } = require('discord.js');
+const Command = require('../Structures/Command');
 
 module.exports = class extends Command {
   constructor(...args) {
     super(...args, {
-      aliases: ["halp"],
-      description: "Displays all the commands in the bot",
-      category: "Utilities",
-      usage: "[command]",
+      aliases: ['halp'],
+      description: 'Displays all the commands in the bot',
+      category: 'Utilities',
+      usage: '[command]',
     });
   }
 
   async run(message, [command]) {
     const embed = new MessageEmbed()
-      .setColor("BLUE")
+      .setColor('BLUE')
       .setAuthor(
         `${message.guild.name} Help Menu`,
         message.guild.iconURL({ dynamic: true })
@@ -42,8 +42,8 @@ module.exports = class extends Command {
       embed.setDescription(
         `**❯ Aliases:** ${
           cmd.aliases.length
-            ? cmd.aliases.map((alias) => `\`${alias}\``).join(" ")
-            : "No Aliases"
+            ? cmd.aliases.map((alias) => `\`${alias}\``).join(' ')
+            : 'No Aliases'
         }
 **❯ Description:** ${cmd.description}
 **❯ Category:** ${cmd.category}
@@ -63,7 +63,7 @@ Command Parameters: \`<>\` is strict & \`[]\` is optional`
       if (!this.client.owners.includes(message.author.id)) {
         categories = this.client.utils.removeDuplicates(
           this.client.commands
-            .filter((cmd) => cmd.category !== "Owner")
+            .filter((cmd) => cmd.category !== 'Owner')
             .map((cmd) => cmd.category)
         );
       } else {
@@ -78,7 +78,7 @@ Command Parameters: \`<>\` is strict & \`[]\` is optional`
           this.client.commands
             .filter((cmd) => cmd.category === category)
             .map((cmd) => `\`${cmd.name}\``)
-            .join(" ")
+            .join(' ')
         );
       }
       return message.reply({

@@ -3,9 +3,9 @@ module.exports = class SlashCommand {
     this.client = client;
     this.name = options.name || name;
     this.aliases = options.aliases || [];
-    this.description = options.description || "No description provided.";
-    this.category = options.category || "Miscellaneous";
-    this.usage = `/${this.name} ${options.usage || ""}`.trim();
+    this.description = options.description || 'No description provided.';
+    this.category = options.category || 'Miscellaneous';
+    this.usage = `/${this.name} ${options.usage || ''}`.trim();
   }
 
   async run(interaction) {

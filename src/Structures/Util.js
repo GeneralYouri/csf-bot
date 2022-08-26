@@ -1,9 +1,9 @@
-const path = require("path");
-const { promisify } = require("util");
-const glob = promisify(require("glob"));
-const Command = require("./Command.js");
-const SlashCommand = require("./SlashCommand.js");
-const Event = require("./Event.js");
+const path = require('path');
+const { promisify } = require('util');
+const glob = promisify(require('glob'));
+const Command = require('./Command.js');
+const SlashCommand = require('./SlashCommand.js');
+const Event = require('./Event.js');
 
 module.exports = class Util {
   constructor(client) {
@@ -12,9 +12,9 @@ module.exports = class Util {
 
   isClass(input) {
     return (
-      typeof input === "function" &&
-      typeof input.prototype === "object" &&
-      input.toString().substring(0, 5) === "class"
+      typeof input === 'function' &&
+      typeof input.prototype === 'object' &&
+      input.toString().substring(0, 5) === 'class'
     );
   }
 
@@ -36,7 +36,7 @@ module.exports = class Util {
           throw new TypeError(`Command ${name} doesn't export a class.`);
         const command = new File(this.client, name.toLowerCase());
         if (!(command instanceof Command))
-          throw new TypeError(`Comamnd ${name} doesnt belong in Commands.`);
+          throw new TypeError(`Command ${name} is not a Command.`);
         this.client.commands.set(command.name, command);
         if (command.aliases.length) {
           for (const alias of command.aliases) {
@@ -57,9 +57,7 @@ module.exports = class Util {
           throw new TypeError(`Slash Command ${name} doesn't export a class.`);
         const command = new File(this.client, name.toLowerCase());
         if (!(command instanceof SlashCommand))
-          throw new TypeError(
-            `Slash Comamnd ${name} doesnt belong in Commands.`
-          );
+          throw new TypeError(`Slash Command ${name} is not a Slash Command.`);
         this.client.slashcommands.set(command.name, command);
         if (command.aliases.length) {
           for (const alias of command.aliases) {
@@ -80,7 +78,7 @@ module.exports = class Util {
           throw new TypeError(`Event ${name} doesn't export a class!`);
         const event = new File(this.client, name);
         if (!(event instanceof Event))
-          throw new TypeError(`Event ${name} doesn't belong in Events`);
+          throw new TypeError(`Event ${name} is not an Event`);
         this.client.events.set(event.name, event);
         event.emitter[event.type](name, (...args) => event.run(...args));
       }

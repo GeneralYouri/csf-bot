@@ -1,11 +1,11 @@
-const Command = require("../Structures/Command");
+const Command = require('../Structures/Command');
 
 module.exports = class extends Command {
   constructor(...args) {
     super(...args, {
-      aliases: ["pong"],
-      description: "This provides the ping of the bot",
-      category: "Utilities",
+      aliases: ['pong'],
+      description: 'This provides the ping of the bot',
+      category: 'Utilities',
     });
   }
 

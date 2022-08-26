@@ -2,17 +2,20 @@
   "name": "cda-template",
   "version": "1.0.0",
   "main": "src/index",
-  "author": "Adonis Tremblay",
+  "author": "Youri Bok",
   "license": "MIT",
   "scripts": {
-    "start": "node src/index"
+    "start": "node src/index",
+    "dev": "nodemon src/index"
   },
   "devDependencies": {
     "eslint": "^7.0.0",
-    "eslint-config-tesseract": "^0.0.2"
+    "eslint-config-tesseract": "^0.0.2",
+    "nodemon": "^2.0.19"
   },
   "dependencies": {
-    "discord.js": "^13.0.0-dev.4d53d0f.1626566655",
+    "discord.js": "^14.3.0",
+    "dotenv": "^16.0.1",
     "glob": "^7.1.6",
     "path": "^0.12.7",
     "util": "^0.12.3"

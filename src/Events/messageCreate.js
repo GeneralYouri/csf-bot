@@ -1,10 +1,10 @@
-const Event = require("../Structures/Event");
-const config = require("../../config.json");
+const Event = require('../Structures/Event');
+const config = require('../../config.js');
 
 module.exports = class extends Event {
   async run(message) {
     const mentionRegex = RegExp(`^<@!${this.client.user.id}>$`);
-    const mentionRegexPrefix = RegExp(`^<@!${this.client.user.id}> `);
+    // const mentionRegexPrefix = RegExp(`^<@!${this.client.user.id}> `);
 
     if (!message.guild || message.author.bot) return;
 

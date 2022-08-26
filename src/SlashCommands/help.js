@@ -1,19 +1,19 @@
-const { MessageEmbed } = require("discord.js");
-const SlashCommand = require("../Structures/SlashCommand");
+const { MessageEmbed } = require('discord.js');
+const SlashCommand = require('../Structures/SlashCommand');
 
 module.exports = class extends SlashCommand {
   constructor(...args) {
     super(...args, {
       aliases: [],
-      description: "Displays all the commands in the bot",
-      category: "Utilities",
-      usage: "[command]",
+      description: 'Displays all the commands in the bot',
+      category: 'Utilities',
+      usage: '[command]',
     });
   }
 
   async run(interaction) {
     const embed = new MessageEmbed()
-      .setColor("BLUE")
+      .setColor('BLUE')
       .setAuthor(
         `${interaction.guild.name} Help Menu`,
         interaction.guild.iconURL({ dynamic: true })
@@ -25,19 +25,19 @@ module.exports = class extends SlashCommand {
       )
       .setTimestamp();
 
-    if (interaction?.options?.get("command")?.value !== undefined) {
+    if (interaction?.options?.get('command')?.value !== undefined) {
       const cmd =
         this.client.slashcommands.get(
-          interaction?.options?.get("command")?.value
+          interaction?.options?.get('command')?.value
         ) ||
         this.client.slashcommands.get(
-          this.client.aliases.get(interaction?.options?.get("command")?.value)
+          this.client.aliases.get(interaction?.options?.get('command')?.value)
         );
 
       if (!cmd)
         return interaction.reply({
           content: `Invalid Command named. \`${
-            interaction?.options?.get("command")?.value
+            interaction?.options?.get('command')?.value
           }\``,
           ephemeral: true,
         });
@@ -49,8 +49,8 @@ module.exports = class extends SlashCommand {
       embed.setDescription(
         `**❯ Aliases:** ${
           cmd.aliases.length
-            ? cmd.aliases.map((alias) => `\`${alias}\``).join(" ")
-            : "No Aliases"
+            ? cmd.aliases.map((alias) => `\`${alias}\``).join(' ')
+            : 'No Aliases'
         }
 **❯ Description:** ${cmd.description}
 **❯ Category:** ${cmd.category}
@@ -71,7 +71,7 @@ Command Parameters: \`<>\` is strict & \`[]\` is optional`
       if (!this.client.owners.includes(interaction.user.id)) {
         categories = this.client.utils.removeDuplicates(
           this.client.slashcommands
-            .filter((cmd) => cmd.category !== "Owner")
+            .filter((cmd) => cmd.category !== 'Owner')
             .map((cmd) => cmd.category)
         );
       } else {
@@ -86,7 +86,7 @@ Command Parameters: \`<>\` is strict & \`[]\` is optional`
           this.client.slashcommands
             .filter((cmd) => cmd.category === category)
             .map((cmd) => `\`${cmd.name}\``)
-            .join(" ")
+            .join(' ')
         );
       }
       return interaction.reply({

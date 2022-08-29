@@ -18,7 +18,7 @@ module.exports = class extends Event {
     );
 
     await this.client.user.setPresence({
-      status: 'idle',
+      status: 'online',
       activities: [
         {
           name: 'Type ' + this.client.prefix + 'help',

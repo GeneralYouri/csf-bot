@@ -4,11 +4,13 @@ const Util = require('./Util.js');
 module.exports = class BotClient extends Client {
   constructor(options = {}) {
     super({
-      // disableMentions: ['everyone'],
       intents: [
+        GatewayIntentBits.DirectMessages,
         GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildBans,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.GuildMessageReactions,
+        GatewayIntentBits.MessageContent,
         // Guilds = 1,
         // GuildMembers = 2,
         // GuildBans = 4,

@@ -25,6 +25,7 @@ module.exports = class extends Event {
                 },
             ],
         });
+        await this.client.user.setAvatar('./logo.png');
 
         const commands = [
             {
